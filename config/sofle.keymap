@@ -20,16 +20,28 @@
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
 
-    behaviors {
-        layer_dance: layer_dance {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_DANCE";
-            #binding-cells = <0>;
-            bindings = <&mo 1>, <&mo 2>, <&mo 3>;
+    combos {
+        compatible = "zmk,combos";
+
+        Symbols {
+            bindings = <&mo 2>;
+            key-positions = <55 53>;
+        };
+
+        Adjust {
+            bindings = <&mo 3>;
+            key-positions = <55 54>;
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    behaviors {
+        layer_cycle: layer_cycle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_CYCLE";
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&mo 3>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -37,11 +49,11 @@
         default_layer {
             display-name = "default";
             bindings = <
-&kp GRAVE        &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                  &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp ESC          &kp Q   &kp W     &kp E     &kp R      &kp T                                   &kp Y      &kp U      &kp I      &kp O     &kp P     &kp LEFT_BRACKET
-&kp TAB          &kp A   &kp S     &kp D     &kp F      &kp G                                   &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp NON_US_BSLH  &kp Z   &kp X     &kp C     &kp V      &kp B       &kp C_MUTE    &kp C_PP      &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RET
-                         &kp LALT  &kp BSPC  &kp LCTRL  &kp LSHIFT  &kp LGUI      &layer_dance  &kp SPACE  &kp RCTRL  &trans     &kp RALT
+&kp GRAVE        &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                              &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp ESC          &kp Q   &kp W     &kp E     &kp R      &kp T                               &kp Y      &kp U      &kp I      &kp O     &kp P     &kp LEFT_BRACKET
+&kp TAB          &kp A   &kp S     &kp D     &kp F      &kp G                               &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp NON_US_BSLH  &kp Z   &kp X     &kp C     &kp V      &kp B       &kp C_MUTE    &kp C_PP  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RET
+                         &kp LALT  &kp BSPC  &kp LCTRL  &kp LSHIFT  &kp LGUI      &mo 1     &kp SPACE  &kp RCTRL  &kp DEL    &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -50,33 +62,33 @@
         lower_layer {
             display-name = "lower";
             bindings = <
-&trans  &kp F1    &kp F2  &kp F3    &kp F4    &kp F5                       &kp F6     &kp F7      &kp F8        &kp F9      &kp F10     &kp F11
-&trans  &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                       &kp N6     &kp N7      &kp N8        &kp N9      &kp N0      &kp GRAVE
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &kp CARET  &kp AMPS    &kp ASTERISK  &kp LPAR    &kp RPAR    &kp BSLH
-&trans  &trans    &trans  &trans    &trans    &trans     &trans    &trans  &kp EQUAL  &kp RA(N7)  &kp RA(N0)    &kp RA(N8)  &kp RA(N9)  &kp RIGHT_BRACKET
-                  &trans  &kp DEL   &trans    &trans     &trans    &trans  &trans     &trans      &trans        &trans
+&trans  &kp F1    &kp F2   &kp F3  &kp F4  &kp F5                             &kp F6    &kp F7    &kp F8  &kp F9     &kp F10  &kp F11
+&trans  &kp N1    &kp N2   &kp N3  &kp N4  &kp N5                             &kp N6    &kp N7    &kp N8  &kp N9     &kp N0   &kp GRAVE
+&trans  &kp HOME  &kp END  &trans  &trans  &kp PRINTSCREEN                    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
+&trans  &trans    &trans   &trans  &trans  &trans           &trans    &trans  &trans    &trans    &trans  &trans     &trans   &trans
+                  &trans   &trans  &trans  &trans           &trans    &trans  &trans    &trans    &trans  &trans
             >;
         };
 
-        raise_layer {
-            display-name = "raise";
+        symbols_layer {
+            display-name = "symbols";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                       &trans      &trans      &trans  &trans     &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans                             &kp C_PREV  &kp C_NEXT  &trans  &trans     &trans  &trans
-&trans      &kp HOME      &kp END       &trans        &trans        &kp PRINTSCREEN                    &kp LEFT    &kp DOWN    &kp UP  &kp RIGHT  &trans  &trans
-&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans           &trans    &trans  &trans      &trans      &trans  &trans     &trans  &trans
-                          &trans        &trans        &trans        &trans           &trans    &trans  &trans      &trans      &trans  &trans
+&trans  &trans    &trans  &trans    &trans          &trans                       &trans     &trans      &trans        &trans         &trans            &trans
+&trans  &trans    &trans  &trans    &trans          &trans                       &kp MINUS  &kp EQUAL   &kp GRAVE     &kp BACKSLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR        &kp PRCNT                    &kp CARET  &kp AMPS    &kp ASTERISK  &kp LPAR       &kp RPAR          &kp BSLH
+&trans  &trans    &trans  &trans    &trans          &trans     &trans    &trans  &kp EQUAL  &kp RA(N7)  &kp RA(N0)    &kp RA(N8)     &kp RA(N9)        &trans
+                  &trans  &trans    &kp LEFT_SHIFT  &trans     &trans    &trans  &trans     &trans      &trans        &trans
             >;
         };
 
         adjust_layer {
             display-name = "adjust";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none  &none  &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none       &none       &none  &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &kp C_PREV  &kp C_NEXT  &none  &none  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none       &none       &none  &none  &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none       &none       &none  &none  &none  &none
+                                    &none            &none            &none            &none            &none              &none  &none       &none       &none  &none
             >;
         };
     };
