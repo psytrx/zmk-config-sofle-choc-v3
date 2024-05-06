@@ -68,11 +68,11 @@
         upper_layer {
             display-name = "upper";
             bindings = <
-&trans  &trans    &trans   &trans  &trans  &trans                             &trans     &trans     &trans     &trans         &trans            &trans
-&trans  &trans    &trans   &trans  &trans  &trans                             &kp MINUS  &kp EQUAL  &kp GRAVE  &kp BACKSLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans  &kp HOME  &kp END  &trans  &trans  &kp PRINTSCREEN                    &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT      &trans            &trans
-&trans  &trans    &trans   &trans  &trans  &trans           &trans    &trans  &trans     &trans     &trans     &trans         &trans            &none
-                  &trans   &trans  &trans  &trans           &trans    &trans  &trans     &trans     &trans     &trans
+&trans  &trans    &trans   &trans  &trans  &trans                             &trans    &trans    &trans  &trans     &trans            &trans
+&trans  &trans    &trans   &trans  &trans  &trans                             &trans    &trans    &trans  &trans     &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans  &kp HOME  &kp END  &trans  &trans  &kp PRINTSCREEN                    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans            &trans
+&trans  &trans    &trans   &trans  &trans  &trans           &trans    &trans  &trans    &trans    &trans  &trans     &trans            &none
+                  &trans   &trans  &trans  &trans           &trans    &trans  &trans    &trans    &trans  &trans
             >;
         };
 
