@@ -69,7 +69,7 @@
             display-name = "upper";
             bindings = <
 &trans  &trans    &trans   &trans  &trans  &trans                             &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans    &trans   &trans  &trans  &trans                             &trans    &trans    &trans  &trans     &trans  &kp MINUS
+&trans  &trans    &trans   &trans  &trans  &trans                             &kp C_PREV  &kp C_NEXT    &trans  &trans     &trans  &kp MINUS
 &trans  &kp HOME  &kp END  &trans  &trans  &kp PRINTSCREEN                    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
 &trans  &trans    &trans   &trans  &trans  &trans           &trans    &trans  &trans    &trans    &trans  &trans     &trans  &none
                   &trans   &trans  &trans  &trans           &trans    &trans  &trans    &trans    &trans  &trans
