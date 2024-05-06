@@ -34,14 +34,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYER_CYCLE";
             #binding-cells = <0>;
-            bindings = <&mo 1>, <&mo 3>;
-        };
-
-        lgui_mo_tap: lgui_mo_tap {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LGUI_MO_TAP";
-            #binding-cells = <0>;
-            bindings = <&mo 2>, <&kp LGUI>;
+            bindings = <&mo 1>, <&mo 2>, <&mo 3>;
         };
     };
 
@@ -51,11 +44,11 @@
         default_layer {
             display-name = "default";
             bindings = <
-&kp GRAVE        &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp ESC          &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y      &kp U      &kp I      &kp O     &kp P     &kp LEFT_BRACKET
-&kp TAB          &kp A   &kp S     &kp D     &kp F      &kp G                                     &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp NON_US_BSLH  &kp Z   &kp X     &kp C     &kp V      &kp B       &kp C_MUTE      &kp C_PP      &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RET
-                         &kp LALT  &kp BSPC  &kp LCTRL  &kp LSHIFT  &lgui_mo_tap    &layer_cycle  &kp SPACE  &kp RCTRL  &kp DEL    &kp RALT
+&kp GRAVE        &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                  &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp ESC          &kp Q   &kp W     &kp E     &kp R      &kp T                                   &kp Y      &kp U      &kp I      &kp O     &kp P     &kp LEFT_BRACKET
+&kp TAB          &kp A   &kp S     &kp D     &kp F      &kp G                                   &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp NON_US_BSLH  &kp Z   &kp X     &kp C     &kp V      &kp B       &kp C_MUTE    &kp C_PP      &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RET
+                         &kp LALT  &kp BSPC  &kp LCTRL  &kp LSHIFT  &kp LGUI      &layer_cycle  &kp SPACE  &kp RCTRL  &kp DEL    &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -65,9 +58,9 @@
             display-name = "lower";
             bindings = <
 &trans  &kp F1    &kp F2  &kp F3    &kp F4    &kp F5                       &kp F6     &kp F7      &kp F8        &kp F9      &kp F10     &kp F11
-&trans  &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                       &kp N6     &kp N7      &kp N8        &kp N9      &kp N0      &kp F12
+&trans  &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                       &kp N6     &kp N7      &kp N8        &kp N9      &kp N0      &kp MINUS
 &trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &kp CARET  &kp AMPS    &kp ASTERISK  &kp LPAR    &kp RPAR    &kp BSLH
-&trans  &trans    &trans  &trans    &trans    &trans     &trans    &trans  &kp EQUAL  &kp RA(N7)  &kp RA(N0)    &kp RA(N8)  &kp RA(N9)  &none
+&trans  &trans    &trans  &trans    &trans    &trans     &trans    &trans  &kp EQUAL  &kp RA(N7)  &kp RA(N0)    &kp RA(N8)  &kp RA(N9)  &kp TILDE
                   &trans  &trans    &trans    &trans     &trans    &trans  &trans     &trans      &trans        &trans
             >;
         };
