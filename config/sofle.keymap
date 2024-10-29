@@ -22,7 +22,7 @@
         compatible = "zmk,conditional-layers";
 
         adjust {
-            if-layers = <1 2>;
+            if-layers = <2 3>;
             then-layer = <3>;
         };
     };
@@ -34,7 +34,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYER_CYCLE";
             #binding-cells = <0>;
-            bindings = <&mo 1>, <&mo 2>, <&mo 3>;
+            bindings = <&mo 1>, <&mo 2>, <&mo 0>;
+
+            tapping-term-ms = <400>;
         };
     };
 
@@ -57,33 +59,22 @@
         lower_layer {
             display-name = "lower";
             bindings = <
-&trans  &kp F1    &kp F2  &kp F3    &kp F4    &kp F5                       &kp F6     &kp F7      &kp F8        &kp F9      &kp F10     &kp EQUAL
-&trans  &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                       &kp N6     &kp N7      &kp N8        &kp N9      &kp N0      &kp RIGHT_BRACKET
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &kp CARET  &kp AMPS    &kp ASTERISK  &kp LPAR    &kp RPAR    &kp BSLH
-&trans  &trans    &trans  &trans    &trans    &trans     &trans    &trans  &kp GRAVE  &kp RA(N7)  &kp RA(N0)    &kp RA(N8)  &kp RA(N9)  &kp TILDE
-                  &trans  &trans    &trans    &trans     &trans    &trans  &trans     &trans      &trans        &trans
+&trans  &kp F1    &kp F2  &kp F3    &kp F4    &kp F5                                &kp F6     &kp F7      &kp F8        &kp F9      &kp F10     &kp EQUAL
+&trans  &kp N1    &kp N2  &kp N3    &kp N4    &kp N5                                &kp N6     &kp N7      &kp N8        &kp N9      &kp N0      &kp RIGHT_BRACKET
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                             &kp CARET  &kp AMPS    &kp ASTERISK  &kp LPAR    &kp RPAR    &kp BSLH
+&trans  &trans    &trans  &kp HOME  &kp END   &trans     &kp PRINTSCREEN    &trans  &kp GRAVE  &kp RA(N7)  &kp RA(N0)    &kp RA(N8)  &kp RA(N9)  &kp TILDE
+                  &trans  &trans    &trans    &trans     &trans             &trans  &trans     &trans      &trans        &trans
             >;
         };
 
         upper_layer {
             display-name = "upper";
             bindings = <
-&trans  &trans    &trans   &trans  &trans  &trans                             &trans      &trans      &trans  &trans     &trans  &trans
-&trans  &trans    &trans   &trans  &trans  &trans                             &kp C_PREV  &kp C_NEXT  &trans  &trans     &trans  &trans
-&trans  &kp HOME  &kp END  &trans  &trans  &kp PRINTSCREEN                    &kp LEFT    &kp DOWN    &kp UP  &kp RIGHT  &trans  &trans
-&trans  &trans    &trans   &trans  &trans  &trans           &trans    &trans  &trans      &trans      &trans  &trans     &trans  &none
-                  &trans   &trans  &trans  &trans           &trans    &trans  &trans      &trans      &trans  &trans
-            >;
-        };
-
-        adjust_layer {
-            display-name = "adjust";
-            bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none   &none   &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &trans  &trans  &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none   &none   &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none   &none   &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none   &none   &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                                &trans      &trans      &trans  &trans     &trans  &trans
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                             &kp C_PREV  &kp C_NEXT  &trans  &trans     &trans  &trans
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                       &kp LEFT    &kp DOWN    &kp UP  &kp RIGHT  &trans  &trans
+&trans             &trans           &trans           &trans           &trans           &trans           &rgb_ug RGB_TOG    &trans  &trans      &trans      &trans  &trans     &trans  &none
+                                    &trans           &trans           &trans           &trans           &trans             &trans  &trans      &trans      &trans  &trans
             >;
         };
     };
