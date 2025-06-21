@@ -12,3 +12,9 @@ Shield config & firmware for my Sofle Choc. Built for maintaining a low profile.
 - EC11 rotary encoders for scrolling & media control
 
 ![Her](./images/portrait.jpg)
+
+## Keymap
+
+![Default layer](./images/default_layer.png)
+![Lower layer](./images/lower_layer.png)
+![Upper layer](./images/upper_layer.png)
